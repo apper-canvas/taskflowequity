@@ -52,9 +52,9 @@ const Dashboard = () => {
     }
 
     // Filter by category
-    if (activeCategory) {
+if (activeCategory) {
       filtered = filtered.filter(task => task.category === 
-        categories.find(c => c.Id === activeCategory)?.name
+        categories.find(c => c.Id === activeCategory)?.Name
       );
     }
 

@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import Badge from '@/components/atoms/Badge';
+import { motion } from "framer-motion";
+import Badge from "@/components/atoms/Badge";
+import React from "react";
 
 const CategoryFilter = ({ 
   categories = [], 
@@ -7,36 +8,31 @@ const CategoryFilter = ({
   onCategoryChange,
   className = '' 
 }) => {
-  const allCategory = { Id: null, name: 'All', color: '#6B7280' };
+const allCategory = { Id: null, Name: 'All', color: '#6B7280' };
   const filterCategories = [allCategory, ...categories];
 
   return (
-    <div className={`flex flex-wrap gap-2 ${className}`}>
-      {filterCategories.map((category) => {
-        const isActive = activeCategory === category.Id;
-        
-        return (
-          <motion.button
-            key={category.Id || 'all'}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => onCategoryChange && onCategoryChange(category.Id)}
-            className={`
-              px-3 py-1.5 rounded-full text-sm font-medium font-body transition-all duration-200
-              ${isActive 
-                ? 'text-white shadow-md' 
-                : 'text-gray-600 bg-white border border-gray-200 hover:border-gray-300'
-              }
-            `}
-            style={isActive ? { 
-              background: `linear-gradient(135deg, ${category.color}, ${category.color}dd)` 
-            } : {}}
-          >
-            {category.name}
-          </motion.button>
-        );
-      })}
-    </div>
+    <motion.div 
+      className={`flex flex-wrap gap-2 ${className}`}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      {filterCategories.map((category) => (
+        <Badge
+          key={category.Id}
+          variant={activeCategory === category.Id ? 'primary' : 'secondary'}
+          onClick={() => onCategoryChange?.(category.Id)}
+          className="cursor-pointer hover:scale-105 transition-transform"
+          style={{ 
+            backgroundColor: activeCategory === category.Id ? category.color : undefined,
+            borderColor: category.color 
+          }}
+        >
+          {category.Name}
+        </Badge>
+      ))}
+    </motion.div>
   );
 };
 

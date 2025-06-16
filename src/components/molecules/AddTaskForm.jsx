@@ -20,7 +20,7 @@ const AddTaskForm = ({ categories = [], onTaskAdded, className = '' }) => {
 
     setIsSubmitting(true);
     try {
-      const newTask = await taskService.create({
+const newTask = await taskService.create({
         title: title.trim(),
         priority,
         category,
