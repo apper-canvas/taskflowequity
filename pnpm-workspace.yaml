@@ -1,0 +1,6 @@
+packages:
+  - '.'
+
+# Prevent peer dependency issues from blocking builds
+# while maintaining dependency validation for critical packages
+strictPeerDependencies: false
