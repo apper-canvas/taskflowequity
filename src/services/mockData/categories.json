@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "name": "work",
+    "color": "#3B82F6",
+    "order": 0
+  },
+  {
+    "Id": 2,
+    "name": "personal",
+    "color": "#10B981",
+    "order": 1
+  },
+  {
+    "Id": 3,
+    "name": "health",
+    "color": "#F59E0B",
+    "order": 2
+  },
+  {
+    "Id": 4,
+    "name": "learning",
+    "color": "#8B5CF6",
+    "order": 3
+  }
+]
