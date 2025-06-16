@@ -21,6 +21,8 @@ const categoryService = {
         ]
       };
 
+      console.log('Params', params)
+
       const response = await apperClient.fetchRecords('category', params);
 
       if (!response.success) {
